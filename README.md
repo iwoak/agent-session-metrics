@@ -8,7 +8,7 @@ Agents produce work quickly, and that speed makes one question easy to skip: how
 
 This measures the process, not the product the agent is building.
 
-I built it to measure my own. What it told me is written up here: **[LINK TO ARTICLE]**. Short version: the cheap check I ran on every push had never once caught a defect in 45 pull requests, while every real failure came from the expensive checks I had made rare.
+I built it to measure my own. What it told me is written up here: **[Shift Left testing meets AI agents](https://medium.com/@iwo.diana/shift-left-testing-meets-ai-agents-a3161e68a7a5)**. Short version: the cheap check I ran on every push had never once caught a defect in 45 pull requests, while every real failure came from the expensive checks I had made rare.
 
 ## What the report looks like
 
