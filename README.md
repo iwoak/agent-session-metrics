@@ -58,18 +58,6 @@ Each `SessionRecord` (schema in `tools/metrics/collect.ts`) carries:
 
 **Never collected**: prompt text, the content of any file, the output of any command, the diff of any change. A local `hook.log` exists for the hook's own errors and holds no collected data.
 
-## How it works
-
-Three hooks in `.claude/settings.json` call `.claude/hooks/metrics-collect.sh`, which invokes `tools/metrics/collect.ts`:
-
-- **`Stop`** derives a `SessionRecord` from the session transcript and writes it to `.claude/metrics-spool/records/<session_id>.json`, local and git-ignored. It pushes only if five minutes have passed since the last successful push.
-- **`SessionEnd`** writes the final state and always pushes.
-- **`SessionStart`** sweeps: it pushes records not yet synchronised, recovers orphan sessions that never reached a `Stop`, then enumerates `subagents/*.meta.json` next to the transcript and produces a record for each sub-agent.
-
-Each record is a root commit holding a single `record.json`, on a dedicated ref outside `refs/heads`. Two consequences: concurrent sessions never contend, so `--force` is safe because nothing else writes that ref; and the pushes are invisible to GitHub Actions, whose `push` and `pull_request` triggers only watch `refs/heads` and `refs/tags`.
-
-`pnpm metrics:report` fetches every ref, applies `pricing.json`, queries `gh` for PR and CI status, and writes `tools/metrics/REPORT.md`.
-
 ## Installation
 
 There is no installer yet. This is six manual steps, and it assumes you are comfortable editing your own hook configuration.
@@ -134,6 +122,20 @@ METRICS_CI_WORKFLOW="Build and test" pnpm metrics:report
 ## Disabling it
 
 Remove the `SessionStart`, `Stop`, and `SessionEnd` block from `.claude/settings.json`. One block, one file. With no hooks configured the script is never invoked, so `tools/metrics/` and the hook can stay where they are.
+
+
+## How it works
+
+Three hooks in `.claude/settings.json` call `.claude/hooks/metrics-collect.sh`, which invokes `tools/metrics/collect.ts`:
+
+- **`Stop`** derives a `SessionRecord` from the session transcript and writes it to `.claude/metrics-spool/records/<session_id>.json`, local and git-ignored. It pushes only if five minutes have passed since the last successful push.
+- **`SessionEnd`** writes the final state and always pushes.
+- **`SessionStart`** sweeps: it pushes records not yet synchronised, recovers orphan sessions that never reached a `Stop`, then enumerates `subagents/*.meta.json` next to the transcript and produces a record for each sub-agent.
+
+Each record is a root commit holding a single `record.json`, on a dedicated ref outside `refs/heads`. Two consequences: concurrent sessions never contend, so `--force` is safe because nothing else writes that ref; and the pushes are invisible to GitHub Actions, whose `push` and `pull_request` triggers only watch `refs/heads` and `refs/tags`.
+
+`pnpm metrics:report` fetches every ref, applies `pricing.json`, queries `gh` for PR and CI status, and writes `tools/metrics/REPORT.md`.
+
 
 ## Known limitations
 
