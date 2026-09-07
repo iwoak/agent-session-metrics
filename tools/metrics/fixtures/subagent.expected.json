@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "session_id": "agent-ae4fd0ecea21bfc0f",
+  "parent_session_id": "06148b2e-08ba-4490-952e-c4ca62d174bf",
+  "agent_type": "implementer",
+  "entrypoint": "claude-vscode",
+  "isolation": "worktree",
+  "started_at": "2026-08-25T08:57:29.018Z",
+  "updated_at": "2026-08-25T08:57:50.252Z",
+  "ended_at": null,
+  "exit_reason": "unknown",
+  "session_end_reason": null,
+  "branch_start": "chore/example-feature",
+  "branch_end": "chore/example-feature",
+  "branches_seen": [
+    "chore/example-feature"
+  ],
+  "cwd": "/Users/dev/workspaces/example-project/example-project/.claude/worktrees/agent-ae4fd0ecea21bfc0f",
+  "model_primary": "claude-sonnet-5",
+  "models_seen": [
+    "claude-sonnet-5"
+  ],
+  "tokens": {
+    "input": 10,
+    "output": 236,
+    "cache_creation": 38758,
+    "cache_read": 52363
+  },
+  "tokens_by_model": {
+    "claude-sonnet-5": {
+      "input": 10,
+      "output": 236,
+      "cache_creation": 38758,
+      "cache_read": 52363
+    }
+  },
+  "effort_levels_seen": [
+    "high"
+  ],
+  "turns": 1,
+  "assistant_messages": 5,
+  "tool_calls": {
+    "Bash": 4,
+    "Read": 3
+  },
+  "tool_calls_interrupted": 0,
+  "files_read": [
+    "src/app.ts",
+    "src/server.ts",
+    "src/routes.ts"
+  ],
+  "files_written": [],
+  "transcript_entry_count": 20,
+  "version": "2.1.229",
+  "collected_by": "stop",
+  "pushed_at": null
+}

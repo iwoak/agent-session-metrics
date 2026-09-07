@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "session_id": "06148b2e-08ba-4490-952e-c4ca62d174bf",
+  "parent_session_id": null,
+  "agent_type": "tech-lead",
+  "entrypoint": "claude-vscode",
+  "isolation": "primary",
+  "started_at": "2026-08-25T07:34:30.333Z",
+  "updated_at": "2026-08-25T07:34:42.254Z",
+  "ended_at": null,
+  "exit_reason": "turn_stop",
+  "session_end_reason": null,
+  "branch_start": "main",
+  "branch_end": "main",
+  "branches_seen": [
+    "main"
+  ],
+  "cwd": "/Users/dev/workspaces/example-project/example-project",
+  "model_primary": "claude-sonnet-5",
+  "models_seen": [
+    "claude-sonnet-5"
+  ],
+  "tokens": {
+    "input": 6,
+    "output": 1016,
+    "cache_creation": 46807,
+    "cache_read": 42393
+  },
+  "tokens_by_model": {
+    "claude-sonnet-5": {
+      "input": 6,
+      "output": 1016,
+      "cache_creation": 46807,
+      "cache_read": 42393
+    }
+  },
+  "effort_levels_seen": [
+    "high"
+  ],
+  "turns": 1,
+  "assistant_messages": 3,
+  "tool_calls": {
+    "Bash": 5,
+    "Read": 4
+  },
+  "tool_calls_interrupted": 0,
+  "files_read": [
+    "src/app.ts",
+    "src/server.ts",
+    "src/routes.ts",
+    "src/db.ts"
+  ],
+  "files_written": [],
+  "transcript_entry_count": 35,
+  "version": "2.1.229",
+  "collected_by": "stop",
+  "pushed_at": null
+}

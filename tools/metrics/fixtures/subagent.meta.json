@@ -1,0 +1,9 @@
+{
+  "agentType": "implementer",
+  "worktreePath": "/Users/dev/workspaces/example-project/example-project/.claude/worktrees/agent-ae4fd0ecea21bfc0f",
+  "spawnedWithWorktree": true,
+  "worktreeBranch": "worktree-agent-ae4fd0ecea21bfc0f",
+  "description": "Test probe (fixture)",
+  "toolUseId": "toolu_01Subjs92mF5HXA2x9WtusWE",
+  "spawnDepth": 1
+}
